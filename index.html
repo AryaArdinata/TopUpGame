@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Xatan Shop</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+
+<script>
+
+function tutupPopup(){
+
+    document.getElementById(
+        "warningPopup"
+    ).style.display = "none";
+
+}
+
+</script>
+
+</head>
+<body>
+
+<!-- POP UP -->
+<div id="warningPopup" class="warning-popup">
+
+    <div class="warning-box">
+
+        <h1>⚠️ ATTENTION ⚠️</h1>
+
+        <h2>
+            XatanShop Sementara Belum Tersedia
+        </h2>
+
+        <p>
+            Saat Ini Layanan Top Up Belum Bisa Digunakan
+        </p>
+
+        <p>
+            Karena API Key Developer Belum Ada.
+            Ditambah proses pembuatan API Key memerlukan KTP,
+            sementara umur Developer belum mencukupi untuk hal tersebut.
+        </p>
+
+        <p>
+            🙏🏻 Terima Kasih Telah Berkunjung 🙏🏻
+        </p>
+
+        <button onclick="tutupPopup()">
+            LANJUTKAN
+        </button>
+
+    </div>
+
+</div>
+
+
+
+
+
+<!-- GOOGLE LOGIN -->
+
+<div
+id="g_id_onload"
+data-client_id="743669974230-4cgqntk26gjk6rilcjj5h1s3505o26no.apps.googleusercontent.com"
+data-callback="handleCredentialResponse">
+</div>
+
+<!-- ACCOUNT -->
+
+<div class="account-box">
+
+    <img
+    id="userPhoto"
+    class="user-photo"
+    src="assets/logo.png">
+
+    <div class="account-info">
+
+        <h3 id="userName">
+            Login Google
+        </h3>
+
+        <p>
+            Member Xatan Shop
+        </p>
+
+    </div>
+
+    <button
+    class="btn-login"
+    onclick="loginGoogle()">
+
+        Login
+
+    </button>
+
+</div>
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <h1>Xatan Shop</h1>
+
+    <p>
+        Top Up Game Murah & Aman
+    </p>
+
+</header>
+
+<!-- BANNER -->
+
+<div class="slider">
+
+    <div
+    class="slides"
+    id="slides">
+
+        <img src="assets/banner1.jpg">
+
+        <img src="assets/banner2.jpg">
+
+        <img src="assets/banner3.jpg">
+
+    </div>
+
+</div>
+
+<!-- GAME LIST -->
+
+<div class="container">
+
+    <h2>Pilih Game</h2>
+
+    <div class="game-grid">
+
+        <div
+        class="game-card"
+        onclick="pilihGame('Mobile Legends')">
+
+            <img
+            src="assets/games/ml.png">
+
+            <h3>
+                Mobile Legends
+            </h3>
+
+        </div>
+
+        <div
+        class="game-card"
+        onclick="pilihGame('Free Fire')">
+
+            <img
+            src="assets/games/ff.png">
+
+            <h3>
+                Free Fire
+            </h3>
+
+        </div>
+
+        <div
+        class="game-card"
+        onclick="pilihGame('PUBG Mobile')">
+
+            <img
+            src="assets/games/pubg.png">
+
+            <h3>
+                PUBG Mobile
+            </h3>
+
+        </div>
+
+        <div
+        class="game-card"
+        onclick="pilihGame('Honor Of Kings')">
+
+            <img
+            src="assets/games/hok.png">
+
+            <h3>
+                HOK
+            </h3>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- BOTTOM NAV -->
+
+<div class="bottom-nav">
+
+    <a href="history.html">
+        History
+    </a>
+
+    <a href="contact.html">
+        Contact CS
+    </a>
+
+    <a href="status.html">
+        Status
+    </a>
+
+</div>
+
+<script>
+
+function loginGoogle(){
+
+    alert(
+    "Google Login belum disambungkan"
+    );
+
+}
+
+function pilihGame(game){
+
+    localStorage.setItem(
+    "game",
+    game
+    );
+
+    window.location.href =
+    "game.html";
+
+}
+
+/* SLIDER */
+
+const slides =
+document.getElementById("slides");
+
+if(slides){
+
+    let current = 0;
+
+    setInterval(() => {
+
+        current++;
+
+        if(
+        current >=
+        slides.children.length
+        ){
+            current = 0;
+        }
+
+        slides.style.transform =
+        `translateX(-${current * 100}%)`;
+
+    },3000);
+
+}
+
+</script>
+
+</body>
+</html>

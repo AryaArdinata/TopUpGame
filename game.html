@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Player</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<div id="alertBox" class="alert">
+    Please fill in your ID
+</div>
+
+<div class="container">
+
+    <h2 id="gameTitle">
+        Loading...
+    </h2>
+
+    <p style="margin-bottom:15px;">
+        Masukkan data akun game kamu
+    </p>
+
+    <input
+    type="text"
+    id="playerID"
+    placeholder="ID Player">
+
+    <input
+    type="text"
+    id="serverID"
+    placeholder="ID Server">
+
+    <button
+    class="btn"
+    onclick="lanjutPaket()">
+
+        Lanjut
+
+    </button>
+
+</div>
+
+<script>
+
+// Ambil game dari dashboard
+
+const game =
+localStorage.getItem("game");
+
+document.getElementById(
+"gameTitle"
+).innerText =
+game || "Data Player";
+
+// Tombol lanjut
+
+function lanjutPaket(){
+
+    const playerID =
+    document.getElementById(
+    "playerID"
+    ).value;
+
+    const serverID =
+    document.getElementById(
+    "serverID"
+    ).value;
+
+    const alertBox =
+    document.getElementById(
+    "alertBox"
+    );
+
+    if(playerID.trim() === ""){
+
+        alertBox.style.display =
+        "block";
+
+        setTimeout(()=>{
+
+            alertBox.style.display =
+            "none";
+
+        },2500);
+
+        return;
+
+    }
+
+    // Simpan data
+
+    localStorage.setItem(
+    "playerID",
+    playerID
+    );
+
+    localStorage.setItem(
+    "serverID",
+    serverID
+    );
+
+    // Pindah ke paket
+
+    if(game === "Mobile Legends"){
+    window.location.href = "ml.html";
+}
+
+else if(game === "Free Fire"){
+    window.location.href = "ff.html";
+}
+
+else if(game === "PUBG Mobile"){
+    window.location.href = "pubg.html";
+}
+
+else if(game === "Honor Of Kings"){
+    window.location.href = "hok.html";
+}
+
+}
+
+</script>
+
+</body>
+</html>

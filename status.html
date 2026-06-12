@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Status Pesanan</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Status Pesanan</h2>
+
+    <div class="summary">
+
+        <p>
+            <b>ID Transaksi :</b>
+            <span id="paymentID">-</span>
+        </p>
+
+        <p>
+            <b>Game :</b>
+            <span id="game">-</span>
+        </p>
+
+        <p>
+            <b>ID Player :</b>
+            <span id="playerID">-</span>
+        </p>
+
+        <p>
+            <b>Paket :</b>
+            <span id="paket">-</span>
+        </p>
+
+        <p>
+            <b>Harga :</b>
+            <span id="harga">-</span>
+        </p>
+
+        <p>
+            <b>Status :</b>
+            <span id="statusText">Pending</span>
+        </p>
+
+    </div>
+    
+    <div id="qrisBox" class="qris-box">
+
+<h3>Scan QRIS</h3>
+
+<img
+id="qrisImage"
+src="assets/payment/qris-bayar.jpg"
+alt="QRIS">
+
+<p>
+Silahkan scan QRIS di atas untuk melakukan pembayaran.
+</p>
+
+</div>
+
+    <button
+    class="btn"
+    onclick="window.location.href='index.html'">
+
+        Kembali ke Dashboard
+
+    </button>
+
+</div>
+
+
+
+<script>
+
+document.getElementById("paymentID")
+.innerText =
+localStorage.getItem("paymentID") || "-";
+
+document.getElementById("game")
+.innerText =
+localStorage.getItem("game") || "-";
+
+document.getElementById("playerID")
+.innerText =
+localStorage.getItem("playerID") || "-";
+
+document.getElementById("paket")
+.innerText =
+localStorage.getItem("paket") || "-";
+
+const harga =
+localStorage.getItem("harga");
+
+document.getElementById("harga")
+.innerText =
+harga
+? "Rp " + Number(harga).toLocaleString("id-ID")
+: "-";
+
+const status =
+localStorage.getItem("status")
+|| "Pending";
+
+const statusText =
+document.getElementById("statusText");
+
+statusText.innerText = status;
+
+if(status === "Success"){
+
+    statusText.style.color =
+    "#00ff66";
+
+}
+else if(status === "Cancel"){
+
+    statusText.style.color =
+    "#ff4444";
+
+}
+else{
+
+    statusText.style.color =
+    "#ffcc00";
+
+}
+
+</script>
+
+</body>
+</html>

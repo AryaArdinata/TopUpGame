@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Checkout Here!</h2>
+
+    <div class="summary">
+
+        <p>
+            <b>Game :</b>
+            <span id="game-name">-</span>
+        </p>
+
+        <p>
+            <b>ID Player :</b>
+            <span id="player-id">-</span>
+        </p>
+
+        <p>
+            <b>Paket :</b>
+            <span id="paket-name">-</span>
+        </p>
+
+        <p>
+            <b>Price :</b>
+            <span id="price">-</span>
+        </p>
+
+        <p>
+            <b>ID Payment :</b>
+            <span id="payment-id">-</span>
+        </p>
+
+    </div>
+
+    <div class="warning-box">
+
+        <h3>
+            ⚠️ ATTENTION ⚠️
+        </h3>
+
+        <p>
+            • Setelah Checkout silahkan bayar sesuai metode pembayaran.
+        </p>
+
+        <p>
+            • Jika ingin mengetahui status pembayaran silahkan klik Status di Dashboard.
+        </p>
+
+    </div>
+
+    <h3>Pilih Metode Pembayaran</h3>
+
+    <div class="pay">
+        <img src="assets/payment/qris.png">
+        <span>QRIS</span>
+    </div>
+
+    <div class="pay">
+        <img src="assets/payment/dana.png">
+        <span>DANA</span>
+    </div>
+
+    <div class="pay">
+        <img src="assets/payment/ovo.png">
+        <span>OVO</span>
+    </div>
+
+    <div class="pay">
+        <img src="assets/payment/gopay.png">
+        <span>GOPAY</span>
+    </div>
+
+    <div class="pay">
+        <img src="assets/payment/bca.png">
+        <span>BCA</span>
+    </div>
+
+    <input
+    type="text"
+    id="rekening"
+    placeholder="Masukkan Nomor Pembayaran">
+
+    <button
+    class="btn"
+    id="checkoutBtn">
+
+        Checkout
+
+    </button>
+
+</div>
+
+<script>
+
+// tampilkan data
+
+document.getElementById("game-name")
+.innerText =
+localStorage.getItem("game") || "-";
+
+document.getElementById("player-id")
+.innerText =
+localStorage.getItem("playerID") || "-";
+
+document.getElementById("paket-name")
+.innerText =
+localStorage.getItem("paket") || "-";
+
+const harga =
+    localStorage.getItem("harga");
+
+document.getElementById("price")
+.innerText =
+harga
+? "Rp " + Number(harga).toLocaleString("id-ID")
+: "-";
+
+// generate id transaksi
+
+const paymentID =
+"XTN" +
+Math.floor(
+100000 + Math.random() * 900000
+);
+
+document.getElementById(
+"payment-id"
+).innerText =
+paymentID;
+
+localStorage.setItem(
+"paymentID",
+paymentID
+);
+
+// sembunyikan input rekening
+
+const rekening =
+document.getElementById(
+"rekening"
+);
+
+rekening.style.display =
+"none";
+
+// pilih pembayaran
+
+const payments =
+document.querySelectorAll(
+".pay"
+);
+
+let selectedPayment =
+"";
+
+payments.forEach(pay=>{
+
+    pay.addEventListener("click",()=>{
+
+        payments.forEach(p=>{
+            p.classList.remove(
+            "active"
+            );
+        });
+
+        pay.classList.add(
+        "active"
+        );
+
+        selectedPayment =
+        pay.querySelector(
+        "span"
+        ).innerText;
+
+        localStorage.setItem(
+        "payment",
+        selectedPayment
+        );
+
+        if(
+        selectedPayment ===
+        "QRIS"
+        ){
+
+            rekening.style.display =
+            "none";
+
+        }else{
+
+            rekening.style.display =
+            "block";
+
+        }
+
+    });
+
+});
+
+// checkout
+
+document
+.getElementById(
+"checkoutBtn"
+)
+.addEventListener(
+"click",
+()=>{
+
+    if(
+    selectedPayment === ""
+    ){
+
+        alert(
+        "Pilih metode pembayaran terlebih dahulu"
+        );
+
+        return;
+
+    }
+
+    if(
+    selectedPayment !==
+    "QRIS"
+    &&
+    rekening.value.trim()
+    === ""
+    ){
+
+        alert(
+        "Masukkan nomor pembayaran"
+        );
+
+        return;
+
+    }
+
+    localStorage.setItem(
+    "status",
+    "Pending"
+    );
+
+    alert(
+    "Pesanan berhasil dibuat!\n\n" +
+    "ID : " +
+    paymentID
+    );
+
+    window.location.href =
+    "status.html";
+
+});
+
+</script>
+
+</body>
+</html>

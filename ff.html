@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Fire</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+<h2>Pilih Paket Free Fire</h2>
+
+<div class="paket-grid">
+
+<div class="paket" onclick="pilihPaket('5 Diamond',2000)">
+<span>5💎</span>
+<b>Rp 2.000</b>
+</div>
+
+<div class="paket" onclick="pilihPaket('12 Diamond',3000)">
+<span>12💎</span>
+<b>Rp 3.000</b>
+</div>
+
+<div class="paket" onclick="pilihPaket('50 Diamond',9000)">
+<span>50💎</span>
+<b>Rp 9.000</b>
+</div>
+
+<div class="paket" onclick="pilihPaket('70 Diamond',11000)">
+<span>70💎</span>
+<b>Rp 11.000</b>
+</div>
+
+<div class="paket" onclick="pilihPaket('91 Diamond',14000)">
+<span>91💎</span>
+<b>Rp 14.000</b>
+</div>
+
+<div class="paket" onclick="pilihPaket('140 Diamond',21000)">
+<span>140💎</span>
+<b>Rp 21.000</b>
+</div>
+
+<div class="paket" onclick="pilihPaket('355 Diamond',52000)">
+<span>355💎</span>
+<b>Rp 52.000</b>
+</div>
+
+<div class="paket" onclick="pilihPaket('720 Diamond',102000)">
+<span>720💎</span>
+<b>Rp 102.000</b>
+</div>
+
+<div class="paket" onclick="pilihPaket('1450 Diamond',203000)">
+<span>1450💎</span>
+<b>Rp 203.000</b>
+</div>
+
+<div class="paket" onclick="pilihPaket('2180 Diamond',305000)">
+<span>2180💎</span>
+<b>Rp 305.000</b>
+</div>
+
+</div>
+
+<h3 class="judul-member">Membership</h3>
+
+<div class="member-grid">
+
+<div class="paket-card"
+onclick="pilihPaket('Membership Mingguan',29000)">
+
+<img
+src="assets/ff/member-weekly.png"
+class="member-img">
+
+<h3>Membership Mingguan</h3>
+<p>Rp 29.000</p>
+
+</div>
+
+<div class="paket-card"
+onclick="pilihPaket('Membership Bulanan',86000)">
+
+<img
+src="assets/ff/member-monthly.png"
+class="member-img">
+
+<h3>Membership Bulanan</h3>
+<p>Rp 86.000</p>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function pilihPaket(nama,harga){
+
+localStorage.setItem(
+"game",
+"Free Fire"
+);
+
+localStorage.setItem(
+"paket",
+nama
+);
+
+localStorage.setItem(
+"harga",
+harga
+);
+
+window.location.href =
+"checkout.html";
+
+}
+
+</script>
+
+</body>
+</html>

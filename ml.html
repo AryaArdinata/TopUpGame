@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobile Legends</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+<h2>Pilih Paket Mobile Legends</h2>
+
+<div class="paket-grid">
+  
+  <div class="paket" onclick="pilihPaket('5 Diamond','1200')">
+    <span>5💎</span>
+    <b>Rp 1.200</b>
+  </div>
+  
+  <div class="paket" onclick="pilihPaket('18 Diamond','5000')">
+    <span>18💎</span>
+    <b>Rp 5.000</b>
+  </div>
+  
+  <div class="paket" onclick="pilihPaket('36 Diamond','10000')">
+    <span>36💎</span>
+    <b>Rp 10.000</b>
+  </div>
+  
+  <div class="paket" onclick="pilihPaket('59 Diamond','15000')">
+    <span>59💎</span>
+    <b>Rp 15.000</b>
+  </div>
+  
+  <div class="paket" onclick="pilihPaket('74 Diamond','20000')">
+    <span>74💎</span>
+    <b>Rp 20.000</b>
+  </div>
+  
+  <div class="paket" onclick="pilihPaket('92 Diamond','25000')">
+    <span>92💎</span>
+    <b>Rp 25.000</b>
+  </div>
+  
+  <div class="paket" onclick="pilihPaket('116 Diamond','30000')">
+    <span>116💎</span>
+    <b>Rp 30.000</b>
+  </div>
+  
+  <div class="paket" onclick="pilihPaket('129 Diamond','35000')">
+    <span>129💎</span>
+    <b>Rp 35.000</b>
+  </div>
+  
+  <div class="paket" onclick="pilihPaket('153 Diamond','40000')">
+    <span>153💎</span>
+    <b>Rp 40.000</b>
+  </div>
+  
+  <div class="paket" onclick="pilihPaket('173 Diamond','45000')">
+    <span>173💎</span>
+    <b>Rp 45.000</b>
+  </div>
+  
+  <div class="paket" onclick="pilihPaket('194 Diamond','50000')">
+    <span>194💎</span>
+    <b>Rp 50.000</b>
+  </div>
+  
+  <div class="paket" onclick="pilihPaket('222 Diamond','55000')">
+    <span>222💎</span>
+    <b>Rp 55.000</b>
+  </div>
+  
+  <div class="paket" onclick="pilihPaket('240 Diamond','60000')">
+    <span>240💎</span>
+    <b>Rp 60.000</b>
+  </div>
+  
+  <div class="paket" onclick="pilihPaket('257 Diamond','65000')">
+    <span>257💎</span>
+    <b>Rp 65.000</b>
+  </div>
+  
+  <div class="paket" onclick="pilihPaket('277 Diamond','70000')">
+    <span>277💎</span>
+    <b>Rp 70.000</b>
+  </div>
+  
+</div>
+
+<div class="paket wdp"
+onclick="pilihPaket('Weekly Diamond Pass','27000')">
+
+<span>🎁 Weekly Diamond Pass</span>
+
+<b>Rp 27.000</b>
+
+</div>
+
+</div>
+
+<script>
+
+function pilihPaket(nama,harga){
+
+localStorage.setItem(
+"game",
+"Mobile Legends"
+);
+
+localStorage.setItem(
+"paket",
+nama
+);
+
+localStorage.setItem(
+"harga",
+harga
+);
+
+window.location.href =
+"checkout.html";
+
+}
+
+</script>
+
+</body>
+</html>

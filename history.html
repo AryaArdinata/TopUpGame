@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>History Pembelian</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Riwayat Pembelian</h2>
+
+    <div id="historyList">
+
+        <p>
+            Belum ada riwayat pembelian.
+        </p>
+
+    </div>
+
+    <button
+    class="btn"
+    onclick="window.location.href='index.html'">
+
+        Kembali
+
+    </button>
+
+</div>
+
+<script>
+
+const historyList =
+document.getElementById("historyList");
+
+const histories =
+JSON.parse(
+localStorage.getItem("history")
+) || [];
+
+if(histories.length > 0){
+
+    historyList.innerHTML = "";
+
+    histories.reverse().forEach(item => {
+
+        historyList.innerHTML += `
+
+        <div class="summary">
+
+            <p>
+                <b>ID :</b>
+                <span>${item.paymentID}</span>
+            </p>
+
+            <p>
+                <b>Game :</b>
+                <span>${item.game}</span>
+            </p>
+
+            <p>
+                <b>ID Player :</b>
+                <span>${item.playerID}</span>
+            </p>
+
+            <p>
+                <b>Paket :</b>
+                <span>${item.paket}</span>
+            </p>
+
+            <p>
+                <b>Harga :</b>
+                <span>Rp ${Number(item.harga).toLocaleString("id-ID")}</span>
+            </p>
+
+            <p>
+                <b>Status :</b>
+                <span style="color:#00ff66">
+                    Success
+                </span>
+            </p>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
